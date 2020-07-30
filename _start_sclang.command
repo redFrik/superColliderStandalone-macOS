@@ -4,5 +4,5 @@
 
 cd -- "$(dirname "$BASH_SOURCE")"
 HOME=.  #the trick
-SuperCollider.app/Contents/MacOS/sclang -a -i scqt -l Library/Application\ Support/SuperCollider/sclang_conf.yaml
+SuperCollider.app/Contents/MacOS/sclang -a -i scqt -l Library/Application\ Support/SuperCollider/sclang_conf.yaml  #optional: set a custom name for the app
 osascript -e 'tell application "Terminal" to quit' & exit  #optional: quit terminal after quitting sc
