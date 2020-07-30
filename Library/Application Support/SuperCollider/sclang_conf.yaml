@@ -1,0 +1,6 @@
+includePaths:
+    -   ~/SuperCollider.app/Contents/Resources/SCClassLibrary
+    -   ~/Library/Application Support/SuperCollider/Extensions
+excludePaths:
+    []
+postInlineWarnings: true

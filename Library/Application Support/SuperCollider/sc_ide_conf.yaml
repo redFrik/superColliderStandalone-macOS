@@ -1,0 +1,6 @@
+IDE:
+  interpreter:
+    autoStart: true
+    configFile: Library/Application Support/SuperCollider/sclang_conf.yaml
+    runtimeDir: ""
+    standalone: true
