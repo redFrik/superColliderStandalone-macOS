@@ -5,15 +5,15 @@ var rootPath= userPath.dirname.dirname.dirname;
 
 //--required: else .scx plugs will be loaded from default location
 s.options.ugenPluginsPath= [
-	Platform.resourceDir+/+"plugins",
-	userPath+/+"Extensions"  //also add this in sclang_conf.yaml
+	Platform.resourceDir+/+"plugins",  //the plugins folder inside .app bundle
+	userPath+/+"Extensions"  //our Extensions folder. also add this in sclang_conf.yaml
 ].postln;
 
 //--required: else .synthdef files will be loaded from default location
 "SC_SYNTHDEF_PATH".setenv(userPath+/+"synthdefs");
 SynthDef.synthDefDir= userPath+/+"synthdefs";
 
-//--required: set up a custom recordings directory in application root folder
+//--recommended: set up a custom recordings directory in application root folder
 thisProcess.platform.recordingsDir= rootPath+/+"recordings";
 
 
@@ -47,7 +47,7 @@ s.meter;
 }.defer(1);
 
 
-//--optional: add your standard startup file stuff below like soundcard and memory settings
+//--optional: add your standard startup file stuff below e.g. soundcard, latency and memory settings
 
-//--or load and run some code automatically
+//--and/or load and run your code automatically at startup like this example...
 //s.waitForBoot{"examples/pieces/microhelix_study.scd".load};
