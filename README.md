@@ -37,7 +37,7 @@ To start the full SuperCollider IDE double-click the \_start_.command script. Th
 
 This folder contains a few necessary class library overrides and a modified startup.scd file.
 
-The first time you start your standalone the following files and folders will be written to Library/Application Support/SuperCollider/...
+The first time you start your standalone the following files and folders will be created inside here...
 
 * archive.sctxar
 * downloaded-quarks
@@ -45,21 +45,25 @@ The first time you start your standalone the following files and folders will be
 * sessions
 * synthdefs
 * tmp
-* and the folder Help/ will be filled up with rendered help files.
+* and the empty folder Help/ will be filled up with rendered help files.
 
 ### Plugins and extensions
 
-Add any additional classes and .scx plugins you want to include to the folder Library/Application Support/SuperCollider/Extensions/
+Put any additional classes and .scx plugins you want to include in the folder Library/Application Support/SuperCollider/Extensions/
+
+You can also make your own extensions folder and include it like normal in the file sclang_conf.yaml under includePaths.
+
+As a side note, you might also want to turn off postInlineWarnings by setting it to false in sclang_conf.yaml.
 
 ## Custom name
 
-To give your standalone a custom name you will need to...
+To give your standalone a unique name you will need to...
 
 * change the name of the .app itself
-* edit the line in the .command script to use your name
-* edit the first line in sclang_conf.yaml under includePaths to use your name.
+* edit the line in the .command script to use that name
+* edit the first line in sclang_conf.yaml under includePaths to use that name.
 
-Note that it will still say SuperCollider in the top menu bar, but your .app will have the correct name in the macOS dock.
+Note that your standalone will still say SuperCollider in the top menu bar, but your .app will have the correct name in the macOS dock.
 I have not tried to use a custom icon.
 
 ## Caveats
@@ -70,16 +74,59 @@ The two unsolved problems are...
 
 1. SCIDE will create a QtWebEngine folder with some stuff in it. It will be written to your ~/Library/Application Support/SuperCollider/QtWebEngine/ folder. This path is hardcoded somewhere in the WebView primitive (related to QWebEngineSettings::LocalStorageEnabled I believe).
 
-2. sclang is creating three files in your ~/Library/Saved Application State/ folder.
+2. sclang is creating a folder with three files in your ~/Library/Saved Application State/ folder. The files are...
    * net.sourceforge.supercollider.savedState/data.data
    * net.sourceforge.supercollider.savedState/window_1.data
    * net.sourceforge.supercollider.savedState/windows.plist
 
 At the moment I see no way around this without editing the C++ code and compile a custom SuperCollider.app.
 
-Also, at startup you will get two warnings in the terminal that I do no now how to avoid:
+Also, at startup you will get two warnings in the terminal that I do not know how to avoid:
 
 * _scide warning: Failed to load fallback translation file._
 * _/Library/Caches/com.apple.xbs/Sources/AppleGVA..._
 
 And last, in SuperCollider IDE post window there will be a warning the first time you run the program: _file "[...]Library/Application Support/SuperCollider/Help/scdoc_version"_ does not exist. This will go away.
+
+This method is confirmed to work under macOS 10.12.6 with SuperCollider 3.11.0. 
+
+---
+
+## Refining
+
+Here is how you can use the wonderful software [Platypus](https://sveinbjorn.org/platypus) together with the files in this repository to make a native application with an icon.
+
+1. Download [SuperCollider](https://supercollider.github.io/download) (signed or not does not matter).
+2. Download the files from this repository.
+3. Copy the Library/ folder from here to the SuperCollider folder
+4. Edit the startup.scd file found in Library/Application Support/SuperCollider/ to suit your needs.
+
+The top-level of your standalone should now look something like this...
+
+```
+SuperCollider/
+│   AUTHORS
+│   CHANGELOG.md
+│   COPYING
+│   examples/
+│   Library/
+│   README_MACOS.md
+│   README.md
+│   SuperCollider.app
+```
+
+**Note**: You are required to keep the licencing files.
+
+5. Start Platypus.app (<https://sveinbjorn.org/platypus>).
+6. Click 'Select Script...' and find either \_start_.command or _start_sclang.command (depending on if you want to use the full IDE or only run sclang).
+7. Set App Name and add an icon.
+8. You can experiment with different Interfaces but normally you will want to set this to 'None'.
+9. 'Run with root privileges' - OFF
+10. 'Run in background' - OFF
+11. 'Remain running after execution' - OFF
+12. Click the + sign and add all the files from inside the SuperCollider folder above (AUTHORS, CHANGELOG, COPYING etc).
+13. Click 'Create App'.
+14. 'Strip nib file to reduce app size' will not save you much (~100kB here) so I suggest turning that OFF.
+15. Done. Zip-archive it for distribution and _then_ test it.
+
+**Note**: Again, do not run the .app on your machine. The .app should be in mint condition when the user receives and unpacks it.
