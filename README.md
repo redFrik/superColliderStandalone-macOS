@@ -86,8 +86,6 @@ Also, at startup you will get two warnings in the terminal that I do not know ho
 * _scide warning: Failed to load fallback translation file._
 * _/Library/Caches/com.apple.xbs/Sources/AppleGVA..._
 
-And last, in SuperCollider IDE post window there will be a warning the first time you run the program: _file "[...]Library/Application Support/SuperCollider/Help/scdoc_version"_ does not exist. This will go away.
-
 This method is confirmed to work under macOS 10.12.6 with SuperCollider 3.11.0. 
 
 ---
@@ -115,7 +113,7 @@ SuperCollider/
 │   SuperCollider.app
 ```
 
-**Note**: You are required to keep the licencing files.
+**Note**: You are required to keep the licensing files.
 
 5. Start Platypus.app (<https://sveinbjorn.org/platypus>).
 6. Click 'Select Script...' and find either \_start_.command or _start_sclang.command (depending on if you want to use the full IDE or only run sclang).
