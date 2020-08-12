@@ -86,7 +86,7 @@ Also, at startup you will get two warnings in the terminal that I do not know ho
 * _scide warning: Failed to load fallback translation file._
 * _/Library/Caches/com.apple.xbs/Sources/AppleGVA..._
 
-This method is confirmed to work under macOS 10.12.6 with SuperCollider 3.11.0. 
+This method is confirmed to work under macOS 10.12.6 and macOS 10.14.4 with SuperCollider 3.11.0.
 
 ---
 
@@ -120,7 +120,7 @@ SuperCollider/
 7. Set App Name and add an icon.
 8. You can experiment with different Interfaces but normally you will want to set this to 'None'.
 9. 'Run with root privileges' - OFF
-10. 'Run in background' - OFF
+10. 'Run in background' - ON
 11. 'Remain running after execution' - OFF
 12. Click the + sign and add all the files from inside the SuperCollider folder above (AUTHORS, CHANGELOG, COPYING etc).
 13. Click 'Create App'.
