@@ -1,12 +1,12 @@
 # supercolliderStandalone-macOS
 
-Standalone template for macOS and SuperCollider version >= 3.11.0 by f0.
+Standalone template for macOS and SuperCollider version >= 3.12.0 by f0.
 
 This method does not require any modifications to the .app bundle.
 
 ## Quickstart
 
-1. Download [SuperCollider](https://supercollider.github.io/download) (signed or not does not matter).
+1. Download [SuperCollider](https://supercollider.github.io/download).
 2. Download the files from this repository.
 3. Move one or both of the .command files together with the Library/ folder found here into the SuperCollider folder you downloaded.
 4. Edit the startup.scd file found in Library/Application Support/SuperCollider/ to suit your needs.
@@ -60,7 +60,6 @@ As a side note, you might also want to turn off postInlineWarnings by setting it
 To give your standalone a unique name you will need to...
 
 * change the name of the .app itself
-* edit the line in the .command script to use that name
 * edit the first line in sclang_conf.yaml under includePaths to use that name.
 
 Note that your standalone will still say SuperCollider in the top menu bar, but your .app will have the correct name in the macOS dock.
@@ -81,12 +80,7 @@ The two unsolved problems are...
 
 At the moment I see no way around this without editing the C++ code and compile a custom SuperCollider.app.
 
-Also, at startup you will get two warnings in the terminal that I do not know how to avoid:
-
-* _scide warning: Failed to load fallback translation file._
-* _/Library/Caches/com.apple.xbs/Sources/AppleGVA..._
-
-This method is confirmed to work under macOS 10.12.6 and macOS 10.14.4 with SuperCollider 3.11.0.
+This method is confirmed to work under macOS 10.14.6 with SuperCollider 3.12.0.
 
 ---
 
@@ -94,7 +88,7 @@ This method is confirmed to work under macOS 10.12.6 and macOS 10.14.4 with Supe
 
 Here is how you can use the wonderful software [Platypus](https://sveinbjorn.org/platypus) together with the files in this repository to make a native application with an icon.
 
-1. Download [SuperCollider](https://supercollider.github.io/download) (signed or not does not matter).
+1. Download [SuperCollider](https://supercollider.github.io/download).
 2. Download the files from this repository.
 3. Copy the Library/ folder from here to the SuperCollider folder
 4. Edit the startup.scd file found in Library/Application Support/SuperCollider/ to suit your needs.
