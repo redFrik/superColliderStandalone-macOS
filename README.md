@@ -6,7 +6,7 @@ This method does not require any modifications to the .app bundle.
 
 ## Quickstart
 
-1. Download [SuperCollider](https://supercollider.github.io/download).
+1. Download [SuperCollider](https://supercollider.github.io/downloads).
 2. Download the files from this repository.
 3. Move one or both of the .command files together with the Library/ folder found here into the SuperCollider folder you downloaded.
 4. Edit the startup.scd file found in Library/Application Support/SuperCollider/ to suit your needs.
@@ -80,7 +80,7 @@ The two unsolved problems are...
 
 At the moment I see no way around this without editing the C++ code and compile a custom SuperCollider.app.
 
-This method is confirmed to work under macOS 10.14.6 with SuperCollider 3.12.0.
+This method is confirmed to work under macOS 10.14.6 with SuperCollider 3.12.0 and 3.13.0.
 
 ---
 
@@ -112,7 +112,7 @@ SuperCollider/
 5. Start Platypus.app (<https://sveinbjorn.org/platypus>).
 6. Click 'Select Script...' and find either \_start_.command or _start_sclang.command (depending on if you want to use the full IDE or only run sclang).
 7. Set App Name and add an icon.
-8. You can experiment with different Interfaces but normally you will want to set this to 'None'.
+8. You can experiment with different settings in 'Interface', but normally you will want to set this to 'None'.
 9. 'Run with root privileges' - OFF
 10. 'Run in background' - ON
 11. 'Remain running after execution' - OFF
