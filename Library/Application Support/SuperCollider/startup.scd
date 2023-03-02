@@ -5,8 +5,8 @@ var rootPath= userPath.dirname.dirname.dirname;
 
 //--required: else .scx plugs will be loaded from default location
 s.options.ugenPluginsPath= [
-	Platform.resourceDir+/+"plugins",  //the plugins folder inside .app bundle
-	userPath+/+"Extensions"  //our Extensions folder. also add this in sclang_conf.yaml
+	Platform.resourceDir.escapeChar($().escapeChar($))+/+"plugins",  //the plugins folder inside .app bundle
+	userPath.escapeChar($().escapeChar($))+/+"Extensions"  //our Extensions folder. also add this in sclang_conf.yaml
 ].postln;
 
 //--required: else .synthdef files will be loaded from default location
